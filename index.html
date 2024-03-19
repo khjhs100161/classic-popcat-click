@@ -133,7 +133,7 @@
     pop_count = getCookie("pop_count")
     cat.innerHTML = pop_count > 0 ? pop_count : ""
 
-    op_func = function(){
+    op_func = function() {
         /*Chance cat image to op.jpg via css*/
         cat.id = "op"
 
@@ -143,16 +143,19 @@
         a.play()
 
         /*Increment index for next pop noise*/
-        pop_i = (pop_i+1)%pops.length
+        pop_i = (pop_i + 1) % pops.length
 
         /*Increment pop count*/
-        pop_count++
-        cat.innerHTML = pop_count
-        setCookie("pop_count",pop_count,365)
-
-        /*Fire google analytics event for pop*/
-        // gtag('event', 'pop');
+        pop_count9++;
+        cat.innerHTML = pop_count;
+        cat.id = "p";
+        pop_audio.load();
+        pop_audio.play();
     }
+     let close_popcat= function (){
+        cat.id = "op";
+     }
+
     p_func = () => setTimeout(() => cat.id = "p", 25)
 
     document.addEventListener("pointerup", p_func)
